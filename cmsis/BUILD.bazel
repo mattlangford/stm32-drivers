@@ -1,0 +1,7 @@
+# Copied from STM32CubeF7/Drivers/CMSIS/Include/
+cc_library(
+    name = "cmsis",
+    hdrs = glob(["*.h"]),
+    visibility = ["//visibility:public"],
+    strip_include_prefix = "/cmsis",
+)

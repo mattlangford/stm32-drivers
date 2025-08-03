@@ -1,7 +1,19 @@
-
 package(default_visibility = ["//visibility:public"])
 
-alias(
-    name = "cmsis",
-    actual = "@cmsis-device-f7//:cmsis",
+filegroup (
+    name = "stm32f767zitx",
+    srcs = [
+        "startup_stm32f767zitx.c",
+        "stm32f767zitx.ld",
+    ],
 )
+
+[cc_library(
+    name = define.lower() + "-cmsis",
+    srcs = ["@cmsis-device-f7//:srcs"],
+    hdrs = ["@cmsis-device-f7//:hdrs"],
+    strip_include_prefix = "Include",
+    defines = [define],
+    deps = ["//cmsis"],
+    visibility = ["//visibility:public"],
+) for define in ["STM32F722xx", "STM32F767xx"]]
