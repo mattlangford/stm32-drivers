@@ -1,1 +1,13 @@
 module(name = "stm32_drivers")
+
+bazel_dep(name = "cmsis-device-f7", version = "1.2.10")
+
+archive_override(
+    module_name = "cmsis-device-f7",
+    sha256 = "bfcd4b4e0afd5a09790bf29a51cceede208e7150d79c895d2f15ec2514e3bac7",
+    urls = ["https://github.com/STMicroelectronics/cmsis-device-f7/archive/refs/heads/master.zip"],
+    strip_prefix = "cmsis-device-f7-master/",
+    build_file = "//third_party:cmsis-device-f7.BUILD",
+    patches = ["//third_party:cmsis-device-f7.patch"],
+    patch_strip  = 1,
+)
