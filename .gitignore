@@ -1,0 +1,5 @@
+/build
+bazel-*
+MODULE.bazel.lock
+.*.sw[op]
+.DS_Store
