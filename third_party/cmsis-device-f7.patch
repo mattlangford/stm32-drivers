@@ -1,7 +1,0 @@
-diff --git a/MODULE.bazel b/MODULE.bazel
-new file mode 100644
-index 0000000..e69de29
---- /dev/null
-+++ b/MODULE.bazel
-@@ -0,0 +1,1 @@
-+module(name = "cmsis-device-f7", version = "1.2.10")

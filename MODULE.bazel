@@ -1,13 +1,11 @@
 module(name = "stm32-drivers")
 
-bazel_dep(name = "cmsis-device-f7", version = "1.2.10")
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-archive_override(
-    module_name = "cmsis-device-f7",
-    sha256 = "bfcd4b4e0afd5a09790bf29a51cceede208e7150d79c895d2f15ec2514e3bac7",
-    urls = ["https://github.com/STMicroelectronics/cmsis-device-f7/archive/refs/heads/master.zip"],
-    strip_prefix = "cmsis-device-f7-master/",
+http_archive(
+    name = "cmsis-device-f7",
     build_file = "//third_party:cmsis-device-f7.BUILD",
-    patches = ["//third_party:cmsis-device-f7.patch"],
-    patch_strip  = 1,
+    sha256 = "bfcd4b4e0afd5a09790bf29a51cceede208e7150d79c895d2f15ec2514e3bac7",
+    strip_prefix = "cmsis-device-f7-master/",
+    urls = ["https://github.com/STMicroelectronics/cmsis-device-f7/archive/refs/heads/master.zip"],
 )
